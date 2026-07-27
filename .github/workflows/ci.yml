@@ -25,7 +25,10 @@ jobs:
       # Hosted Renovate should use the latest available version, so always
       # install the newest version of Renovate
       - name: Install dependencies
-        run: npm install -g renovate
+        shell: bash
+        env:
+          RENOVATE_VERSION: latest
+        run: npm install -g renovate@${RENOVATE_VERSION}
 
       - name: Validate Renovate config
         env:
